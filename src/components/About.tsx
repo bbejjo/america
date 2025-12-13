@@ -90,7 +90,7 @@ const About = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           <div className="order-2 md:order-2">
             <img
-              src="map.png"
+              src="../../map.png"
               alt="Map"
               className="rounded-lg w-full"
             />
