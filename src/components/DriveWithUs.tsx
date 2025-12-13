@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Truck } from 'lucide-react';
 import Modal from './Modal';
-import driverImage from '../../driver.jpg';
+
+const driverImage = '/images/driver.jpg';
 
 const DriveWithUs = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);

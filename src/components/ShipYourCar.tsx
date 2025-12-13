@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Package } from 'lucide-react';
 import Modal from './Modal';
-import carImage from '../../car.png';
+
+const carImage = '/images/car.png';
 
 const ShipYourCar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
