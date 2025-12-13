@@ -84,13 +84,13 @@ const Navbar = () => {
             {isMenuOpen && (
               <div
                 id="mobile-nav"
-                className="absolute right-0 mt-2 w-full min-w-[10rem] bg-white shadow-lg rounded-md border border-gray-100 py-2 flex flex-col"
+                className="absolute right-0 mt-2 w-full min-w-[10rem] bg-blue-600 text-white shadow-xl rounded-lg border border-blue-700/70 py-2 flex flex-col animate-dropdown"
               >
                 {navLinks.map((link) => (
                   <button
                     key={link.id}
                     onClick={() => handleNavClick(link.id)}
-                    className="text-left px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600"
+                    className="text-left px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 hover:text-white"
                   >
                     {link.label}
                   </button>

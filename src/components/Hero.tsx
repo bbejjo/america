@@ -28,7 +28,7 @@ const Hero = () => {
             <img
               src={heroImage}
               alt="Car transport trailer at sunset"
-              className={`w-full h-full object-cover transition-opacity duration-500 hero-image ${
+              className={`w-full h-full object-cover transition-opacity duration-500 hero-image -translate-y-[100px] md:translate-y-0 ${
                 isHeroLoaded ? 'opacity-100' : 'opacity-0'
               }`}
               onLoad={() => setIsHeroLoaded(true)}
@@ -37,10 +37,10 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="absolute bottom-20 md:bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3">
+      <div className="absolute bottom-52 md:bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3">
         <button
           onClick={() => scrollToSection('about')}
-          className="md:hidden inline-flex items-center px-5 py-3 bg-blue-600 text-white text-sm font-semibold rounded-full shadow-lg hover:bg-blue-700 active:bg-blue-800 transition-colors"
+          className="md:hidden inline-flex items-center px-9 py-4 bg-blue-600 text-white text-lg font-semibold rounded-full shadow-lg hover:bg-blue-700 active:bg-blue-800 transition-colors"
         >
           More about us
         </button>
