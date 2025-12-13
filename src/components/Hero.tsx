@@ -37,7 +37,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="absolute bottom-48 md:bottom-10 left-1/2 -translate-x-1/2 translate-y-[30px] z-10 flex flex-col items-center gap-3">
+      <div className="absolute bottom-48 md:bottom-10 left-1/2 -translate-x-1/2 translate-y-[40px] z-10 flex flex-col items-center gap-3">
         <button
           onClick={() => scrollToSection('about')}
           className="md:hidden inline-flex items-center px-9 py-4 bg-blue-600 text-white text-lg font-semibold rounded-full shadow-lg hover:bg-blue-700 active:bg-blue-800 transition-colors"
