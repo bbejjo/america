@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Menu } from 'lucide-react';
 
 const logo = '/images/logo.png';
 
@@ -27,7 +28,7 @@ const Navbar = () => {
   };
 
   const navLinks = [
-    { id: 'hero', label: 'Hero' },
+    { id: 'main', label: 'Main' },
     { id: 'about', label: 'About' },
     { id: 'drive', label: 'Drive With Us' },
     { id: 'ship', label: 'Ship Your Car' },
@@ -46,7 +47,7 @@ const Navbar = () => {
           <div className="flex items-center space-x-2">
             <button
               type="button"
-              onClick={() => handleNavClick('hero')}
+              onClick={() => handleNavClick('main')}
               className="flex items-center"
               aria-label="Back to top"
             >
@@ -73,11 +74,12 @@ const Navbar = () => {
           <div className="relative md:hidden">
             <button
               onClick={() => setIsMenuOpen((prev) => !prev)}
-              className="px-4 py-2 rounded-md text-sm font-semibold transition-colors bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800"
+              className="p-3 text-sm font-semibold transition-colors text-blue-600 hover:text-blue-700 active:text-blue-800"
               aria-expanded={isMenuOpen}
               aria-controls="mobile-nav"
+              aria-label="Navigation menu"
             >
-              Main
+              <Menu className="h-6 w-6" />
             </button>
             {isMenuOpen && (
               <div
