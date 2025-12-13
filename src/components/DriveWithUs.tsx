@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Truck } from 'lucide-react';
 import Modal from './Modal';
+import ImageWithLoader from './ImageWithLoader';
 
 const driverImage = '/images/driver.jpg';
 
@@ -65,13 +66,12 @@ const DriveWithUs = () => {
             </div>
 
             <div className="order-2 lg:order-1 relative">
-              <div className="overflow-hidden rounded-2xl shadow-xl">
-                <img
-                  src={driverImage}
-                  alt="Prime Auto Transport driver"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+              <ImageWithLoader
+                src={driverImage}
+                alt="Prime Auto Transport driver"
+                containerClassName="overflow-hidden rounded-2xl shadow-xl"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>

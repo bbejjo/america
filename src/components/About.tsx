@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Award, TrendingUp, Clock } from 'lucide-react';
+import ImageWithLoader from './ImageWithLoader';
 
 type Stat = {
   icon: typeof Award;
@@ -89,10 +90,11 @@ const About = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           <div className="order-2 md:order-2">
-            <img
+            <ImageWithLoader
               src="/images/map.png"
               alt="Map"
-              className="rounded-lg w-full"
+              containerClassName="rounded-lg w-full overflow-hidden"
+              className="w-full h-full object-cover"
             />
           </div>
 

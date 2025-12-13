@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Package } from 'lucide-react';
 import Modal from './Modal';
+import ImageWithLoader from './ImageWithLoader';
 
 const carImage = '/images/car.png';
 
@@ -67,13 +68,12 @@ const ShipYourCar = () => {
             </div>
 
             <div className="relative">
-              <div className="overflow-hidden rounded-2xl shadow-2xl ring-4 ring-white/10">
-                <img
-                  src={carImage}
-                  alt="Transported vehicle on trailer"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+              <ImageWithLoader
+                src={carImage}
+                alt="Transported vehicle on trailer"
+                containerClassName="overflow-hidden rounded-2xl shadow-2xl ring-4 ring-white/10"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>

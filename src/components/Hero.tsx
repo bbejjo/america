@@ -1,9 +1,13 @@
+import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { LoaderOverlay } from './ImageWithLoader';
 
 const heroImage = '/images/Hero.png';
 const mobileHeroImage = '/images/mob-hero.png';
 
 const Hero = () => {
+  const [isHeroLoaded, setIsHeroLoaded] = useState(false);
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -17,14 +21,20 @@ const Hero = () => {
       className="relative h-screen flex items-center justify-center overflow-hidden"
     >
       <div className="absolute inset-0 z-0">
-        <picture className="block w-full h-full">
-          <source media="(max-width: 767px)" srcSet={mobileHeroImage} />
-          <img
-            src={heroImage}
-            alt="Car transport trailer at sunset"
-            className="w-full h-full object-cover"
-          />
-        </picture>
+        <div className="relative h-full w-full">
+          <LoaderOverlay isVisible={!isHeroLoaded} />
+          <picture className="block w-full h-full">
+            <source media="(max-width: 767px)" srcSet={mobileHeroImage} />
+            <img
+              src={heroImage}
+              alt="Car transport trailer at sunset"
+              className={`w-full h-full object-cover transition-opacity duration-500 ${
+                isHeroLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
+              onLoad={() => setIsHeroLoaded(true)}
+            />
+          </picture>
+        </div>
       </div>
 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3">
