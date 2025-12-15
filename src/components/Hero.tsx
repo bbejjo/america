@@ -24,11 +24,11 @@ const Hero = () => {
         <div className="relative h-full w-full">
           <LoaderOverlay isVisible={!isHeroLoaded} />
           <picture className="block w-full h-full">
-            <source media="(max-width: 767px)" srcSet={mobileHeroImage} />
+            <source media="(max-width: 1279px)" srcSet={mobileHeroImage} />
             <img
               src={heroImage}
               alt="Car transport trailer at sunset"
-              className={`w-full h-full object-cover transition-opacity duration-500 hero-image -translate-y-[100px] md:translate-y-0 ${
+              className={`w-full h-full object-cover object-center transition-opacity duration-500 hero-image ${
                 isHeroLoaded ? 'opacity-100' : 'opacity-0'
               }`}
               onLoad={() => setIsHeroLoaded(true)}
@@ -38,12 +38,6 @@ const Hero = () => {
       </div>
 
       <div className="absolute bottom-48 md:bottom-10 left-1/2 -translate-x-1/2 translate-y-[40px] z-10 flex flex-col items-center gap-3">
-        <button
-          onClick={() => scrollToSection('about')}
-          className="md:hidden inline-flex items-center px-9 py-4 bg-blue-600 text-white text-lg font-semibold rounded-full shadow-lg hover:bg-blue-700 active:bg-blue-800 transition-colors"
-        >
-          More about us
-        </button>
         <button
           onClick={() => scrollToSection('about')}
           className="hidden md:inline-flex bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 animate-bounce"
