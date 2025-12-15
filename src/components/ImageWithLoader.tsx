@@ -17,7 +17,9 @@ const LoaderOverlay = ({ isVisible }: { isVisible: boolean }) => (
         <div className="h-full w-full bg-gradient-to-r from-blue-500 via-sky-400 to-blue-600 animate-road" />
       </div>
     </div>
-    
+    <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-gray-500">
+      Loading image
+    </span>
   </div>
 );
 
