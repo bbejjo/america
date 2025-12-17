@@ -120,7 +120,7 @@ const About = () => {
             return (
               <div
                 key={index}
-                className="bg-gradient-to-br from-[#eaf2fb] to-[#fff5e8] border border-[#d9e6f8] rounded-lg p-8 text-center hover:shadow-lg transition-shadow duration-300"
+                className="bg-[#fffdf9] border border-[#d9e6f8] rounded-lg p-8 text-center hover:shadow-lg transition-shadow duration-300"
               >
                 <Icon className="w-12 h-12 text-[#2d66b2] mx-auto mb-4" />
                 <div className="text-4xl font-bold text-gray-900 mb-2">
