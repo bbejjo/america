@@ -43,11 +43,11 @@ const DriveWithUs = () => {
 
   return (
     <>
-      <section id="drive" className="py-20 bg-gray-50">
+      <section id="drive" className="py-20 bg-[#fff5e8]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="order-1 lg:order-2 text-center lg:text-left">
-              <Truck className="w-16 h-16 text-blue-600 mx-auto lg:mx-0 mb-6" />
+              <Truck className="w-16 h-16 text-[#2d66b2] mx-auto lg:mx-0 mb-6" />
               <h2 className="text-4xl font-bold text-gray-900 mb-6">
                 Drive With Us
               </h2>
@@ -59,7 +59,7 @@ const DriveWithUs = () => {
               </p>
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="bg-[#2d66b2] hover:bg-[#2d66b2] text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
                 Apply as a Driver
               </button>
@@ -93,7 +93,7 @@ const DriveWithUs = () => {
               required
               value={formData.fullName}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#2d66b2] focus:border-transparent"
             />
           </div>
 
@@ -108,7 +108,7 @@ const DriveWithUs = () => {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#2d66b2] focus:border-transparent"
               />
             </div>
 
@@ -122,7 +122,7 @@ const DriveWithUs = () => {
                 required
                 value={formData.phone}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#2d66b2] focus:border-transparent"
               />
             </div>
           </div>
@@ -138,7 +138,7 @@ const DriveWithUs = () => {
               value={formData.cityState}
               onChange={handleChange}
               placeholder="e.g., Los Angeles, CA"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#2d66b2] focus:border-transparent"
             />
           </div>
 
@@ -154,7 +154,7 @@ const DriveWithUs = () => {
                 min="0"
                 value={formData.yearsExperience}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#2d66b2] focus:border-transparent"
               />
             </div>
 
@@ -167,7 +167,7 @@ const DriveWithUs = () => {
                 required
                 value={formData.cdlType}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#2d66b2] focus:border-transparent"
               >
                 <option value="">Select CDL Type</option>
                 <option value="Class A">Class A</option>
@@ -187,13 +187,13 @@ const DriveWithUs = () => {
               value={formData.message}
               onChange={handleChange}
               placeholder="Tell us more about your experience and why you want to join our team..."
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#2d66b2] focus:border-transparent"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md font-semibold transition-colors duration-300"
+            className="w-full bg-[#2d66b2] hover:bg-[#2d66b2] text-white py-3 rounded-md font-semibold transition-colors duration-300"
           >
             Submit Application
           </button>

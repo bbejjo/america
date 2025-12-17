@@ -5,85 +5,85 @@ const Feedback = () => {
   const [showAll, setShowAll] = useState(false);
   const feedbacks = [
     {
-      company: 'Johnson Automotive Group',
-      date: 'March 15, 2025',
-      tags: ['On-Time Transport', 'Professional Service'],
+      company: 'Stratton Way Inc',
+      date: 'Nov 22, 2025',
+      tags: ['Good Communication', 'Good Customer Service', 'On-Time Transport'],
       review:
-        'Prime Auto Transport exceeded our expectations when shipping our entire fleet of luxury vehicles from California to New York. Every car arrived in pristine condition, and the communication throughout the process was outstanding.',
+        'Excellent Job! Very attentive dispatcher, responding calls and texts right away, detail orientaited and great communication. Professional driver. He could handle not a easy pick up with limited timlenie. Highly Rrecommended!.',
     },
     {
-      company: 'Riverside Motors LLC',
-      date: 'February 28, 2025',
-      tags: ['Great Communication', 'Safe Delivery'],
+      company: 'Bridge Way Logistics LLC',
+      date: 'Aug 29, 2025',
+      tags: ['Good Communication', 'Good Customer Service', 'On-Time Transport'],
       review:
-        'We have been using Prime Auto for over two years now, and they never disappoint. Their drivers are courteous, professional, and treat every vehicle with care. Highly recommend for any dealership looking for reliable transport.',
+        'great service and timely updated, exceeding expectations and highly recommended!".',
     },
     {
-      company: 'Elite Car Sales',
-      date: 'January 20, 2025',
-      tags: ['On-Time Transport', 'Excellent Value'],
+      company: 'GetCarrier LLC',
+      date: 'May 1, 2025',
+      tags: ['On-Time Transport', 'Excellent Value', 'Good Customer Service'],
       review:
-        'After trying several transport companies, we finally found our go-to partner. Prime Auto consistently delivers on time and provides competitive pricing without sacrificing quality. Their team is responsive and always ready to help.',
+        'The Customer said “the driver was really nice”. They picked up and delivered as scheduled, kept good communication with all sides and submitted required paperwork within minutes. We asked them to collect our broker fee and they paid it shortly after delivery.',
     },
     {
-      company: 'AutoHub Distribution',
-      date: 'December 10, 2024',
-      tags: ['Professional Service', 'Fast Delivery'],
-      review:
-        'Shipped 15 vehicles last month across different states, and Prime Auto handled everything seamlessly. The tracking system kept us informed every step of the way, and all vehicles arrived ahead of schedule.',
-    },
-    {
-      company: 'Premium Imports Inc',
-      date: 'November 5, 2024',
+      company: 'Car Expo US Inc',
+      date: 'Apr 15, 2025',
       tags: ['Great Communication', 'On-Time Transport'],
       review:
-        "When shipping high-end imports, there's no room for error. Prime Auto understands this and treats each vehicle as if it were their own. We've never had a single issue with damage or delays.",
+        "This is a repeated service this company provided and it met all my expectations again! I will call them directly next time I have a job in this particular route. The best service!",
     },
     {
-      company: 'Metro Auto Exchange',
-      date: 'October 22, 2024',
-      tags: ['Safe Delivery', 'Competitive Pricing'],
+      company: 'Fairways Logistics',
+      date: 'Apr 10, 2025',
+      tags: ['Professional Service', 'Fast Delivery', 'Good Communication'],
       review:
-        'The booking process was straightforward, and the quote was transparent with no hidden fees. Our vehicles were picked up and delivered exactly as promised. Will definitely use Prime Auto again for future shipments.',
+        'Everything was smooth as butter, The vehicle was delivered on time safely. Would highly recommend!',
     },
     {
-      company: 'Coastal Vehicle Solutions',
-      date: 'September 18, 2024',
+      company: 'Ultimate Auto Shipping, Inc',
+      date: 'Mar 22, 2025',
+      tags: ['Safe Delivery', 'Competitive Pricing', 'Great Communication', 'On-Time Transport'],
+      review:
+        'excellent prompt service and great communication. The pick and delivery went exactly as scheduled! Thank you!',
+    },
+    {
+      company: 'Sherpa Auto Transport LLC',
+      date: 'Mar 18, 2025',
       tags: ['Professional Service', 'On-Time Transport'],
       review:
-        'We needed to transport several classic cars for a vintage show, and Prime Auto handled them with exceptional care. The enclosed transport option gave us peace of mind, and everything arrived in perfect condition.',
+        'Great service from start to finish. Communication was clear and fast, and everything was handled professionally. Pickup and delivery were both on time. Highly recommend this company.',
     },
     {
-      company: 'Midwest Auto Traders',
-      date: 'August 30, 2024',
+      company: 'US CAR-GO FREIGHT LOGISTICS LLC',
+      date: 'Feb 20, 2025',
       tags: ['Fast Delivery', 'Great Communication'],
       review:
-        "I've worked with many transport companies over the years, and Prime Auto stands out for their reliability and customer service. They're always available to answer questions and provide updates throughout the shipping process.",
+        "Very reliable auto transport company. Dispatcher was responsive and helpful, and the driver did a great job. No issues at all during the process.",
     },
     {
-      company: 'Precision Motors Group',
-      date: 'July 14, 2024',
+      company: 'ShipYourCarNow LLC',
+      date: 'Feb 14, 2025',
       tags: ['On-Time Transport', 'Safe Delivery'],
       review:
-        'Prime Auto has been our trusted partner for interstate vehicle transport for three years now. Their consistent quality of service and competitive rates make them an invaluable part of our business operations.',
+        'Smooth and easy experience. They kept us updated throughout the transport and delivered the vehicle exactly as promised. Will definitely use them again.',
     },
     {
-      company: 'Velocity Auto Logistics',
-      date: 'June 8, 2024',
+      company: 'JS Transport Services, Inc.',
+      date: 'Feb 8, 2025',
       tags: ['Excellent Value', 'Professional Service'],
       review:
-        'From the initial quote to final delivery, the entire experience was smooth and professional. The driver was punctual, respectful, and took great care in loading and unloading our vehicles. Absolutely satisfied with the service.',
+        'Everything went perfectly from the initial contact to the final delivery. The dispatcher was quick to respond, coordination was clear, and the vehicle was delivered safely and on time. A very reliable and trustworthy company.',
     },
     {
-      company: 'Heritage Car Collection',
-      date: 'May 25, 2024',
+      company: 'United Freeway Transportation LLC',
+      date: 'Jan 25, 2025',
       tags: ['Safe Delivery', 'Great Communication'],
       review:
-        'Transporting vintage automobiles requires special attention, and Prime Auto delivered exactly that. They provided regular updates and ensured our prized collection arrived without a scratch. Truly exceptional service.',
+        'This company exceeded all expectations. They were well organized, easy to work with, and kept us informed throughout the entire transport process. The service was smooth, professional, and dependable. I would confidently recommend them to anyone in need of auto transport services.',
     },
     {
-      company: 'Sunrise Automotive Network',
-      date: 'April 12, 2024',
+      company: 'Executive Auto Transport LLC',
+      date: 'Jan 12, 2025',
       tags: ['On-Time Transport', 'Fast Delivery'],
       review:
         'As a growing dealership, we need a transport partner we can count on. Prime Auto has proven time and again that they are reliable, efficient, and professional. Their rates are fair, and their service is outstanding.',
@@ -94,7 +94,7 @@ const Feedback = () => {
   const toggleLabel = showAll ? 'See less' : 'See more';
 
   return (
-    <section id="feedback" className="py-20 bg-white">
+    <section id="feedback" className="py-20 bg-[#fff5e8]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -127,7 +127,7 @@ const Feedback = () => {
                 {feedback.tags.map((tag, tagIndex) => (
                   <span
                     key={tagIndex}
-                    className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs font-medium"
+                    className="bg-[#2d66b2]/10 text-[#2d66b2] px-3 py-1 rounded-full text-xs font-medium"
                   >
                     {tag}
                   </span>
@@ -142,7 +142,7 @@ const Feedback = () => {
         <div className="text-center mt-10">
           <button
             onClick={() => setShowAll((prev) => !prev)}
-            className="inline-flex items-center px-5 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 active:bg-blue-800 transition-colors"
+            className="inline-flex items-center px-5 py-3 bg-[#2d66b2] text-white font-semibold rounded-full shadow-lg hover:bg-[#2d66b2] active:bg-[#2d66b2] transition-colors"
           >
             {toggleLabel}
           </button>

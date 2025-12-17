@@ -45,7 +45,7 @@ const ShipYourCar = () => {
 
   return (
     <>
-      <section id="ship" className="py-20 bg-blue-600">
+      <section id="ship" className="py-20 bg-[#2d66b2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left text-white">
@@ -61,7 +61,7 @@ const ShipYourCar = () => {
               </p>
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="bg-white hover:bg-gray-100 text-[#2d66b2] px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
                 Get Your Free Quote
               </button>
@@ -95,7 +95,7 @@ const ShipYourCar = () => {
               required
               value={formData.fullName}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#2d66b2] focus:border-transparent"
             />
           </div>
 
@@ -110,7 +110,7 @@ const ShipYourCar = () => {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#2d66b2] focus:border-transparent"
               />
             </div>
 
@@ -124,7 +124,7 @@ const ShipYourCar = () => {
                 required
                 value={formData.phone}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#2d66b2] focus:border-transparent"
               />
             </div>
           </div>
@@ -141,7 +141,7 @@ const ShipYourCar = () => {
                 value={formData.pickupLocation}
                 onChange={handleChange}
                 placeholder="e.g., Miami, FL"
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#2d66b2] focus:border-transparent"
               />
             </div>
 
@@ -156,7 +156,7 @@ const ShipYourCar = () => {
                 value={formData.deliveryLocation}
                 onChange={handleChange}
                 placeholder="e.g., Seattle, WA"
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#2d66b2] focus:border-transparent"
               />
             </div>
           </div>
@@ -171,7 +171,7 @@ const ShipYourCar = () => {
                 required
                 value={formData.vehicleType}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#2d66b2] focus:border-transparent"
               >
                 <option value="">Select Vehicle Type</option>
                 <option value="Sedan">Sedan</option>
@@ -195,7 +195,7 @@ const ShipYourCar = () => {
                 required
                 value={formData.pickupDate}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#2d66b2] focus:border-transparent"
               />
             </div>
           </div>
@@ -210,13 +210,13 @@ const ShipYourCar = () => {
               value={formData.message}
               onChange={handleChange}
               placeholder="Please provide any additional information about your vehicle or special requirements..."
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#2d66b2] focus:border-transparent"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md font-semibold transition-colors duration-300"
+            className="w-full bg-[#2d66b2] hover:bg-[#2d66b2] text-white py-3 rounded-md font-semibold transition-colors duration-300"
           >
             Submit Quote Request
           </button>

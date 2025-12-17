@@ -26,7 +26,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-50">
+    <section id="contact" className="py-20 bg-[#fff5e8]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -66,7 +66,7 @@ const Contact = () => {
                       cx={`${parseFloat(pin.left) * 8}`}
                       cy={`${parseFloat(pin.top) * 5}`}
                       r="8"
-                      fill="#2563eb"
+                      fill="#2d66b2"
                       opacity="0.8"
                     />
                     <circle
@@ -74,7 +74,7 @@ const Contact = () => {
                       cy={`${parseFloat(pin.top) * 5}`}
                       r="12"
                       fill="none"
-                      stroke="#2563eb"
+                      stroke="#2d66b2"
                       strokeWidth="2"
                       opacity="0.4"
                     >
@@ -100,7 +100,7 @@ const Contact = () => {
               </svg>
             </div>
             <div className="mt-6 flex items-center justify-center text-gray-600">
-              <MapPin className="w-5 h-5 mr-2 text-blue-600" />
+              <MapPin className="w-5 h-5 mr-2 text-[#2d66b2]" />
               <span className="font-medium">Nationwide Service Coverage</span>
             </div>
           </div>
@@ -130,7 +130,7 @@ const Contact = () => {
                     type="text"
                     name="fullName"
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#2d66b2] focus:border-transparent"
                     placeholder="Jane Doe"
                   />
                 </div>
@@ -142,7 +142,7 @@ const Contact = () => {
                     type="email"
                     name="email"
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#2d66b2] focus:border-transparent"
                     placeholder="you@example.com"
                   />
                 </div>
@@ -156,7 +156,7 @@ const Contact = () => {
                   name="message"
                   rows={4}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#2d66b2] focus:border-transparent"
                   placeholder="Tell us about your transport needs..."
                 />
               </div>
@@ -164,7 +164,7 @@ const Contact = () => {
               <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
                 <button
                   type="submit"
-                  className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md font-semibold transition-colors duration-300"
+                  className="flex-1 bg-[#2d66b2] hover:bg-[#2d66b2] text-white py-3 rounded-md font-semibold transition-colors duration-300"
                 >
                   Send Email
                 </button>
@@ -185,8 +185,8 @@ const Contact = () => {
                 href="mailto:contact@primeautotransport.com"
                 className="flex items-center p-4 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-shadow duration-300 group"
               >
-                <div className="bg-blue-100 rounded-full p-3 mr-4 group-hover:bg-blue-200 transition-colors">
-                  <Mail className="w-6 h-6 text-blue-600" />
+                <div className="bg-[#2d66b2]/10 rounded-full p-3 mr-4 group-hover:bg-[#2d66b2]/20 transition-colors">
+                  <Mail className="w-6 h-6 text-[#2d66b2]" />
                 </div>
                 <div>
                   <div className="text-sm text-gray-500 mb-1">Email Us</div>

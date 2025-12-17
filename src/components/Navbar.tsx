@@ -64,7 +64,7 @@ const Navbar = () => {
               <button
                 key={link.id}
                 onClick={() => handleNavClick(link.id)}
-                className="transition-colors duration-200 font-medium text-gray-700 hover:text-blue-600"
+                className="transition-colors duration-200 font-medium text-gray-700 hover:text-[#2d66b2]"
               >
                 {link.label}
               </button>
@@ -74,7 +74,7 @@ const Navbar = () => {
           <div className="relative md:hidden">
             <button
               onClick={() => setIsMenuOpen((prev) => !prev)}
-              className="p-3 text-sm font-semibold transition-colors text-blue-600 hover:text-blue-700 active:text-blue-800"
+              className="p-3 text-sm font-semibold transition-colors text-[#2d66b2] hover:text-[#2d66b2] active:text-[#2d66b2]"
               aria-expanded={isMenuOpen}
               aria-controls="mobile-nav"
               aria-label="Navigation menu"
@@ -84,13 +84,13 @@ const Navbar = () => {
             {isMenuOpen && (
               <div
                 id="mobile-nav"
-                className="absolute right-0 mt-2 w-full min-w-[10rem] bg-blue-600 text-white shadow-xl rounded-lg border border-blue-700/70 py-2 flex flex-col animate-dropdown"
+                className="absolute right-0 mt-2 w-full min-w-[10rem] bg-[#2d66b2] text-white shadow-xl rounded-lg border border-[#2d66b2]/70 py-2 flex flex-col animate-dropdown"
               >
                 {navLinks.map((link) => (
                   <button
                     key={link.id}
                     onClick={() => handleNavClick(link.id)}
-                    className="text-left px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 hover:text-white"
+                    className="text-left px-4 py-2 text-sm font-medium text-white hover:bg-[#2d66b2] hover:text-white"
                   >
                     {link.label}
                   </button>
