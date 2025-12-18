@@ -22,7 +22,7 @@ const fallbackImages: GalleryImage[] = [
   {
     id: 3,
     image: '/images/pic3.jpg',
-    description: 'Step 3: Loading with care',
+    description: '',
   },
   {
     id: 4,
@@ -32,12 +32,12 @@ const fallbackImages: GalleryImage[] = [
   {
     id: 5,
     image: '/images/pic5.jpg',
-    description: 'Step 5: In-transit updates',
+    description: '',
   },
   {
     id: 6,
     image: '/images/pic6.jpg',
-    description: 'Step 6: On-time delivery',
+    description: '',
   },
 ];
 
@@ -46,7 +46,6 @@ const OurProcess = () => {
   const [images, setImages] = useState<GalleryImage[]>(fallbackImages);
 
   useEffect(() => {
-    // Replace this with your own API/images when ready.
     setImages(fallbackImages);
   }, []);
 
@@ -62,7 +61,7 @@ const OurProcess = () => {
   };
 
   return (
-    <section id="process" className="py-20 bg-[#fff5e8]">
+    <section id="process" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-3">Our process</h2>
@@ -71,33 +70,29 @@ const OurProcess = () => {
           </p>
         </div>
 
-        <div className="relative">
+        {/* wrapper stays — buttons moved OUTSIDE */}
+        <div className="relative flex items-center">
+
+          {/* LEFT BUTTON */}
           <button
             type="button"
             onClick={() => scroll('left')}
-            className="hidden md:flex items-center justify-center absolute left-0 top-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full bg-[#fff5e8] shadow-lg border border-gray-200 hover:bg-[#ffe8d1] active:scale-95 transition"
+            className="hidden md:flex items-center justify-center absolute -left-16 top-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full bg-[#FF9A5A] shadow-lg border border-[#e57d3f] hover:bg-[#e57d3f] active:scale-95 transition"
             aria-label="Scroll left"
           >
-            <ChevronLeft className="w-5 h-5 text-gray-800" />
-          </button>
-          <button
-            type="button"
-            onClick={() => scroll('right')}
-            className="hidden md:flex items-center justify-center absolute right-0 top-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full bg-[#fff5e8] shadow-lg border border-gray-200 hover:bg-[#ffe8d1] active:scale-95 transition"
-            aria-label="Scroll right"
-          >
-            <ChevronRight className="w-5 h-5 text-gray-800" />
+            <ChevronLeft className="w-5 h-5 text-white" />
           </button>
 
+          {/* SCROLL WRAPPER */}
           <div
             ref={scrollContainerRef}
-            className="flex gap-5 overflow-x-auto scroll-smooth pb-4 px-1 snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            className="flex gap-5 overflow-x-auto scroll-smooth pb-4 px-14 md:px-12 lg:px-18 snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
             <div className="flex-shrink-0 w-4" />
             {images.map((image) => (
               <div
                 key={image.id}
-                className="relative flex-shrink-0 w-72 sm:w-80 lg:w-96 h-56 sm:h-64 lg:h-72 snap-center overflow-hidden rounded-xl bg-[#fff5e8] border border-gray-200 shadow-sm group"
+                className="relative flex-shrink-0 w-72 sm:w-80 lg:w-96 h-56 sm:h-64 lg:h-72 snap-center overflow-hidden rounded-xl bg-white border border-gray-200 shadow-sm group"
               >
                 <ImageWithLoader
                   src={image.image}
@@ -114,6 +109,16 @@ const OurProcess = () => {
             ))}
             <div className="flex-shrink-0 w-4" />
           </div>
+
+          {/* RIGHT BUTTON */}
+          <button
+            type="button"
+            onClick={() => scroll('right')}
+            className="hidden md:flex items-center justify-center absolute -right-16 top-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full bg-[#FF9A5A] shadow-lg border border-[#e57d3f] hover:bg-[#e57d3f] active:scale-95 transition"
+            aria-label="Scroll right"
+          >
+            <ChevronRight className="w-5 h-5 text-white" />
+          </button>
         </div>
       </div>
     </section>

@@ -12,9 +12,9 @@ const LoaderOverlay = ({ isVisible }: { isVisible: boolean }) => (
     }`}
   >
     <div className="flex items-center gap-3">
-      <Car className="h-7 w-7 text-[#2d66b2] animate-pulse" />
+      <Car className="h-7 w-7 text-[#4672B4] animate-pulse" />
       <div className="h-1.5 w-28 overflow-hidden rounded-full bg-gray-200">
-        <div className="h-full w-full bg-gradient-to-r from-[#2d66b2] via-[#2d66b2] to-[#2d66b2] animate-road" />
+        <div className="h-full w-full bg-gradient-to-r from-[#4672B4] via-[#4672B4] to-[#4672B4] animate-road" />
       </div>
     </div>
     <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-gray-500">

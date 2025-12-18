@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Truck } from 'lucide-react';
 import Modal from './Modal';
 import ImageWithLoader from './ImageWithLoader';
 
@@ -43,15 +42,20 @@ const DriveWithUs = () => {
 
   return (
     <>
-      <section id="drive" className="py-20 bg-[#fff5e8]">
+      <section id="drive" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="order-1 lg:order-2 text-center lg:text-left">
-              <Truck className="w-16 h-16 text-[#2d66b2] mx-auto lg:mx-0 mb-6" />
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <div className="order-1 lg:order-2 text-center lg:text-left text-[#4672B4]">
+              <img
+                src="/images/icon.png"
+                alt="Prime Auto Transport icon"
+                className="w-26 h-24 mx-auto lg:mx-0 mb-6 object-contain"
+                loading="lazy"
+              />
+              <h2 className="text-4xl font-bold text-[#4672B4] mb-6">
                 Drive With Us
               </h2>
-              <p className="text-lg text-gray-700 max-w-3xl lg:max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed">
+              <p className="text-lg text-[#4672B4] max-w-3xl lg:max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed">
                 Join our team of professional drivers and be part of a company
                 that values excellence, safety, and reliability. We offer
                 competitive pay, consistent routes, and the support you need to
@@ -59,7 +63,7 @@ const DriveWithUs = () => {
               </p>
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="bg-[#2d66b2] hover:bg-[#2d66b2] text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="bg-[#FF9A5A] hover:bg-[#e57d3f] text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
                 Apply as a Driver
               </button>
@@ -93,7 +97,7 @@ const DriveWithUs = () => {
               required
               value={formData.fullName}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#2d66b2] focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#4672B4] focus:border-transparent"
             />
           </div>
 
@@ -108,7 +112,7 @@ const DriveWithUs = () => {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#2d66b2] focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#4672B4] focus:border-transparent"
               />
             </div>
 
@@ -122,7 +126,7 @@ const DriveWithUs = () => {
                 required
                 value={formData.phone}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#2d66b2] focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#4672B4] focus:border-transparent"
               />
             </div>
           </div>
@@ -138,7 +142,7 @@ const DriveWithUs = () => {
               value={formData.cityState}
               onChange={handleChange}
               placeholder="e.g., Los Angeles, CA"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#2d66b2] focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#4672B4] focus:border-transparent"
             />
           </div>
 
@@ -154,7 +158,7 @@ const DriveWithUs = () => {
                 min="0"
                 value={formData.yearsExperience}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#2d66b2] focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#4672B4] focus:border-transparent"
               />
             </div>
 
@@ -167,7 +171,7 @@ const DriveWithUs = () => {
                 required
                 value={formData.cdlType}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#2d66b2] focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#4672B4] focus:border-transparent"
               >
                 <option value="">Select CDL Type</option>
                 <option value="Class A">Class A</option>
@@ -187,13 +191,13 @@ const DriveWithUs = () => {
               value={formData.message}
               onChange={handleChange}
               placeholder="Tell us more about your experience and why you want to join our team..."
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#2d66b2] focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#4672B4] focus:border-transparent"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full bg-[#2d66b2] hover:bg-[#2d66b2] text-white py-3 rounded-md font-semibold transition-colors duration-300"
+            className="w-full bg-[#FF9A5A] hover:bg-[#e57d3f] text-white py-3 rounded-md font-semibold transition-colors duration-300"
           >
             Submit Application
           </button>

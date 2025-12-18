@@ -1,20 +1,7 @@
 import type { FormEvent } from 'react';
-import { MessageCircle, MapPin } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 
 const Contact = () => {
-  const pins = [
-    { top: '35%', left: '15%' },
-    { top: '45%', left: '25%' },
-    { top: '30%', left: '35%' },
-    { top: '50%', left: '50%' },
-    { top: '25%', left: '55%' },
-    { top: '40%', left: '65%' },
-    { top: '20%', left: '75%' },
-    { top: '55%', left: '80%' },
-    { top: '70%', left: '45%' },
-    { top: '75%', left: '20%' },
-  ];
-
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -26,7 +13,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-[#fff5e8]">
+    <section id="contact" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -38,71 +25,13 @@ const Contact = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="relative bg-white rounded-lg shadow-lg p-8">
-            <div className="relative w-full aspect-[4/3]">
-              <svg
-                viewBox="0 0 800 500"
-                className="w-full h-full"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <rect width="800" height="500" fill="#f3f4f6" />
-
-                <path
-                  d="M100,100 L700,100 L700,400 L600,400 L580,420 L560,400 L100,400 Z
-                     M150,150 L300,150 L320,170 L300,190 L150,190 Z
-                     M350,130 L450,130 L450,200 L350,200 Z
-                     M470,160 L550,160 L570,180 L550,200 L470,200 Z
-                     M200,250 L350,250 L350,350 L200,350 Z
-                     M400,270 L500,270 L500,330 L400,330 Z
-                     M550,240 L650,240 L650,320 L550,320 Z"
-                  fill="#e5e7eb"
-                  stroke="#d1d5db"
-                  strokeWidth="2"
-                />
-
-                {pins.map((pin, index) => (
-                  <g key={index}>
-                    <circle
-                      cx={`${parseFloat(pin.left) * 8}`}
-                      cy={`${parseFloat(pin.top) * 5}`}
-                      r="8"
-                      fill="#2d66b2"
-                      opacity="0.8"
-                    />
-                    <circle
-                      cx={`${parseFloat(pin.left) * 8}`}
-                      cy={`${parseFloat(pin.top) * 5}`}
-                      r="12"
-                      fill="none"
-                      stroke="#2d66b2"
-                      strokeWidth="2"
-                      opacity="0.4"
-                    >
-                      <animate
-                        attributeName="r"
-                        from="12"
-                        to="20"
-                        dur="2s"
-                        begin={`${index * 0.2}s`}
-                        repeatCount="indefinite"
-                      />
-                      <animate
-                        attributeName="opacity"
-                        from="0.4"
-                        to="0"
-                        dur="2s"
-                        begin={`${index * 0.2}s`}
-                        repeatCount="indefinite"
-                      />
-                    </circle>
-                  </g>
-                ))}
-              </svg>
-            </div>
-            <div className="mt-6 flex items-center justify-center text-gray-600">
-              <MapPin className="w-5 h-5 mr-2 text-[#2d66b2]" />
-              <span className="font-medium">Nationwide Service Coverage</span>
-            </div>
+          <div className="w-full h-full">
+            <img
+              src="/images/cards.png"
+              alt="Contact information cards"
+              className="w-full h-full min-h-[540px] object-cover"
+              loading="lazy"
+            />
           </div>
 
           <div className="space-y-8">
@@ -130,7 +59,7 @@ const Contact = () => {
                     type="text"
                     name="fullName"
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#2d66b2] focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#4672B4] focus:border-transparent"
                     placeholder="Jane Doe"
                   />
                 </div>
@@ -142,7 +71,7 @@ const Contact = () => {
                     type="email"
                     name="email"
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#2d66b2] focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#4672B4] focus:border-transparent"
                     placeholder="you@example.com"
                   />
                 </div>
@@ -156,7 +85,7 @@ const Contact = () => {
                   name="message"
                   rows={4}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#2d66b2] focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#4672B4] focus:border-transparent"
                   placeholder="Tell us about your transport needs..."
                 />
               </div>
@@ -164,7 +93,7 @@ const Contact = () => {
               <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
                 <button
                   type="submit"
-                  className="flex-1 bg-[#2d66b2] hover:bg-[#2d66b2] text-white py-3 rounded-md font-semibold transition-colors duration-300"
+                  className="flex-1 bg-[#FF9A5A] hover:bg-[#e57d3f] text-white py-3 rounded-md font-semibold transition-colors duration-300"
                 >
                   Send Email
                 </button>
@@ -172,7 +101,7 @@ const Contact = () => {
                   href="https://wa.me/15551234567"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-md bg-green-600 text-white font-semibold shadow hover:bg-green-700 transition-colors duration-300"
+                  className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-md bg-[#19994C] text-white font-semibold shadow hover:bg-[green] transition-colors duration-300"
                 >
                   <MessageCircle className="w-5 h-5" />
                   WhatsApp
@@ -185,8 +114,8 @@ const Contact = () => {
                 href="mailto:contact@primeautotransport.com"
                 className="flex items-center p-4 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-shadow duration-300 group"
               >
-                <div className="bg-[#2d66b2]/10 rounded-full p-3 mr-4 group-hover:bg-[#2d66b2]/20 transition-colors">
-                  <Mail className="w-6 h-6 text-[#2d66b2]" />
+                <div className="bg-[#4672B4]/10 rounded-full p-3 mr-4 group-hover:bg-[#4672B4]/20 transition-colors">
+                  <Mail className="w-6 h-6 text-[#4672B4]" />
                 </div>
                 <div>
                   <div className="text-sm text-gray-500 mb-1">Email Us</div>

@@ -86,7 +86,7 @@ const About = () => {
   const { ref: statsRef, isInView } = useInView(0.3);
 
   return (
-    <section id="about" className="py-20 bg-[#fff5e8]">
+    <section id="about" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           <div className="order-2 md:order-2">
@@ -120,13 +120,13 @@ const About = () => {
             return (
               <div
                 key={index}
-                className="bg-[#fffdf9] border border-[#d9e6f8] rounded-lg p-8 text-center hover:shadow-lg transition-shadow duration-300"
+                className="bg-[#4672B4] border border-[#4672B4] rounded-lg p-8 text-center hover:shadow-lg transition-shadow duration-300 text-white"
               >
-                <Icon className="w-12 h-12 text-[#2d66b2] mx-auto mb-4" />
-                <div className="text-4xl font-bold text-gray-900 mb-2">
+                <Icon className="w-12 h-12 text-white mx-auto mb-4" />
+                <div className="text-4xl font-bold text-white mb-2">
                   {formatNumber(count, stat.suffix)}
                 </div>
-                <div className="text-gray-600 font-medium">{stat.label}</div>
+                <div className="text-white/90 font-medium">{stat.label}</div>
               </div>
             );
           })}

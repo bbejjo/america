@@ -94,7 +94,7 @@ const Feedback = () => {
   const toggleLabel = showAll ? 'See less' : 'See more';
 
   return (
-    <section id="feedback" className="py-20 bg-[#fff5e8]">
+    <section id="feedback" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -127,7 +127,7 @@ const Feedback = () => {
                 {feedback.tags.map((tag, tagIndex) => (
                   <span
                     key={tagIndex}
-                    className="bg-[#2d66b2]/10 text-[#2d66b2] px-3 py-1 rounded-full text-xs font-medium"
+                    className="bg-[#4672B4]/10 text-[#4672B4] px-3 py-1 rounded-full text-xs font-medium"
                   >
                     {tag}
                   </span>
@@ -142,7 +142,7 @@ const Feedback = () => {
         <div className="text-center mt-10">
           <button
             onClick={() => setShowAll((prev) => !prev)}
-            className="inline-flex items-center px-5 py-3 bg-[#2d66b2] text-white font-semibold rounded-full shadow-lg hover:bg-[#2d66b2] active:bg-[#2d66b2] transition-colors"
+            className="inline-flex items-center px-5 py-3 bg-[#FF9A5A] text-white font-semibold rounded-full shadow-lg hover:bg-[#e57d3f] active:bg-[#e57d3f] transition-colors"
           >
             {toggleLabel}
           </button>
