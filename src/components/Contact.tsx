@@ -29,7 +29,7 @@ const Contact = () => {
             <img
               src="/images/cards.png"
               alt="Contact information cards"
-              className="w-full h-full min-h-[540px] object-cover"
+              className="w-full h-full min-h-[320px] md:min-h-[540px] object-cover"
               loading="lazy"
             />
           </div>
