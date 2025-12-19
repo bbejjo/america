@@ -40,13 +40,13 @@ const Hero = () => {
       <div className="absolute bottom-20 md:bottom-10 left-1/2 -translate-x-1/2 translate-y-[-20px] z-10 flex flex-col items-center gap-3">
         <button
           onClick={() => scrollToSection('about')}
-          className="md:hidden bg-[#FF9A5A] text-white px-6 py-3 rounded-full shadow-lg hover:bg-[#e57d3f] transition-all duration-300 text-sm font-semibold"
+          className="md:hidden bg-[#FF9A5A] text-white px-6 py-3 rounded-full shadow-lg hover:bg-[#e57d3f] transition-all duration-300 text-sm font-semibold transform hover:scale-105"
         >
           More about us
         </button>
         <button
           onClick={() => scrollToSection('about')}
-          className="hidden md:inline-flex bg-[#FF9A5A] rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 animate-bounce"
+          className="hidden md:inline-flex bg-[#FF9A5A] rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 animate-bounce"
           aria-label="Scroll to About section"
         >
           <ChevronDown className="w-6 h-6 text-white" />

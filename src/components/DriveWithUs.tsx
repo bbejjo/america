@@ -48,7 +48,7 @@ const DriveWithUs = () => {
             <div className="order-1 lg:order-2 text-center lg:text-left text-[#4672B4]">
               <img
                 src="/images/icon.png"
-                alt="Prime Auto Transport icon"
+                alt="Maeli LLC icon"
                 className="w-26 h-24 mx-auto lg:mx-0 mb-6 object-contain"
                 loading="lazy"
               />
@@ -72,7 +72,7 @@ const DriveWithUs = () => {
             <div className="order-2 lg:order-1 relative">
               <ImageWithLoader
                 src={driverImage}
-                alt="Prime Auto Transport driver"
+                alt="Maeli LLC driver"
                 containerClassName="overflow-hidden rounded-2xl shadow-xl"
                 className="w-full h-full object-cover"
               />
@@ -197,7 +197,7 @@ const DriveWithUs = () => {
 
           <button
             type="submit"
-            className="w-full bg-[#FF9A5A] hover:bg-[#e57d3f] text-white py-3 rounded-md font-semibold transition-colors duration-300"
+            className="w-full bg-[#FF9A5A] hover:bg-[#e57d3f] text-white py-3 rounded-md font-semibold transition-all duration-300 transform hover:scale-105"
           >
             Submit Application
           </button>

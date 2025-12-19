@@ -77,7 +77,7 @@ const OurProcess = () => {
           <button
             type="button"
             onClick={() => scroll('left')}
-            className="hidden md:flex items-center justify-center absolute -left-16 top-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full bg-[#FF9A5A] shadow-lg border border-[#e57d3f] hover:bg-[#e57d3f] active:scale-95 transition"
+            className="hidden md:flex items-center justify-center absolute -left-16 top-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full bg-[#FF9A5A] shadow-lg border border-[#e57d3f] hover:bg-[#e57d3f] active:scale-95 hover:scale-105 transition-all duration-200"
             aria-label="Scroll left"
           >
             <ChevronLeft className="w-5 h-5 text-white" />
@@ -114,7 +114,7 @@ const OurProcess = () => {
           <button
             type="button"
             onClick={() => scroll('right')}
-            className="hidden md:flex items-center justify-center absolute -right-16 top-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full bg-[#FF9A5A] shadow-lg border border-[#e57d3f] hover:bg-[#e57d3f] active:scale-95 transition"
+            className="hidden md:flex items-center justify-center absolute -right-16 top-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full bg-[#FF9A5A] shadow-lg border border-[#e57d3f] hover:bg-[#e57d3f] active:scale-95 hover:scale-105 transition-all duration-200"
             aria-label="Scroll right"
           >
             <ChevronRight className="w-5 h-5 text-white" />

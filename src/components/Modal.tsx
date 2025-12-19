@@ -24,7 +24,7 @@ const Modal = ({ isOpen, onClose, title, children }: ModalProps) => {
           <h3 className="text-2xl font-bold text-gray-900">{title}</h3>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-600 transition-colors"
+            className="text-gray-400 hover:text-gray-600 transition-all duration-200 transform hover:scale-110"
           >
             <X className="w-6 h-6" />
           </button>

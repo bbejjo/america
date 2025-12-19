@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Package } from 'lucide-react';
+import { Container } from 'lucide-react';
 import Modal from './Modal';
 import ImageWithLoader from './ImageWithLoader';
 
@@ -49,7 +49,7 @@ const ShipYourCar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left text-white">
-              <Package className="w-16 h-16 text-white mx-auto lg:mx-0 mb-6" />
+              <Container className="w-16 h-16 text-white mx-auto lg:mx-0 mb-6" />
               <h2 className="text-4xl font-bold text-white mb-6">
                 Ship Your Car
               </h2>
@@ -216,7 +216,7 @@ const ShipYourCar = () => {
 
           <button
             type="submit"
-            className="w-full bg-[#FF9A5A] hover:bg-[#e57d3f] text-white py-3 rounded-md font-semibold transition-colors duration-300"
+            className="w-full bg-[#FF9A5A] hover:bg-[#e57d3f] text-white py-3 rounded-md font-semibold transition-all duration-300 transform hover:scale-105"
           >
             Submit Quote Request
           </button>

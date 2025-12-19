@@ -142,7 +142,7 @@ const Feedback = () => {
         <div className="text-center mt-10">
           <button
             onClick={() => setShowAll((prev) => !prev)}
-            className="inline-flex items-center px-5 py-3 bg-[#FF9A5A] text-white font-semibold rounded-full shadow-lg hover:bg-[#e57d3f] active:bg-[#e57d3f] transition-colors"
+            className="inline-flex items-center px-5 py-3 bg-[#FF9A5A] text-white font-semibold rounded-full shadow-lg hover:bg-[#e57d3f] active:bg-[#e57d3f] transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
           >
             {toggleLabel}
           </button>

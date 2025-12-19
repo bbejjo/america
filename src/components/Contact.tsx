@@ -39,11 +39,6 @@ const Contact = () => {
               <h3 className="text-2xl font-bold text-gray-900 mb-3">
                 Get in Touch
               </h3>
-              {/* <p className="text-gray-700 leading-relaxed max-w-xl">
-                Have questions about our services? Need a custom quote or want
-                to discuss your specific transport needs? Our team is here to
-                help you every step of the way.
-              </p> */}
             </div>
 
             <form
@@ -93,12 +88,12 @@ const Contact = () => {
               <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
                 <button
                   type="submit"
-                  className="flex-1 bg-[#FF9A5A] hover:bg-[#e57d3f] text-white py-3 rounded-md font-semibold transition-colors duration-300"
+                  className="flex-1 bg-[#FF9A5A] hover:bg-[#e57d3f] text-white py-3 rounded-md font-semibold transition-all duration-300 transform hover:scale-105"
                 >
                   Send Email
                 </button>
                 <a
-                  href="https://wa.me/15551234567"
+                  href="https://wa.me/12679753435"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-md bg-[#19994C] text-white font-semibold shadow hover:bg-[green] transition-colors duration-300"
