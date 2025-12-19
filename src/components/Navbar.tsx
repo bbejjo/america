@@ -69,7 +69,7 @@ const Navbar = () => {
             <button
               type="button"
               onClick={() => handleNavClick('main')}
-              className="flex items-center space-x-2 transition-transform duration-200 hover:scale-105"
+              className="flex items-center space-x-2"
               aria-label="Back to top"
             >
               <img
