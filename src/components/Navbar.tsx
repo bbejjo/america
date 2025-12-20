@@ -49,7 +49,6 @@ const Navbar = () => {
   const navLinks = [
     { id: 'main', label: 'Main' },
     { id: 'about', label: 'About' },
-    { id: 'process', label: 'Our Process' },
     { id: 'drive', label: 'Drive With Us' },
     { id: 'ship', label: 'Ship Your Car' },
     { id: 'feedback', label: 'Feedback' },

@@ -1,7 +1,6 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
-import OurProcess from './components/OurProcess';
 import DriveWithUs from './components/DriveWithUs';
 import ShipYourCar from './components/ShipYourCar';
 import Feedback from './components/Feedback';
@@ -14,7 +13,6 @@ function App() {
       <Navbar />
       <Hero />
       <About />
-      <OurProcess />
       <DriveWithUs />
       <ShipYourCar />
       <Feedback />
