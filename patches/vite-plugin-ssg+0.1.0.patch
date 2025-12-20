@@ -1,0 +1,117 @@
+diff --git a/node_modules/vite-plugin-ssg/dist/plugin.js b/node_modules/vite-plugin-ssg/dist/plugin.js
+index 5c2aca7..e1fff15 100644
+--- a/node_modules/vite-plugin-ssg/dist/plugin.js
++++ b/node_modules/vite-plugin-ssg/dist/plugin.js
+@@ -384,7 +384,6 @@ var __dirname = path3.dirname(fileURLToPath(import.meta.url));
+ var require2 = createRequire(path3.join(process.cwd(), "package.json"));
+ var { createServer } = require2("vite");
+ var reactPlugin = require2("@vitejs/plugin-react").default;
+-var tailwindcss = require2("@tailwindcss/vite").default;
+ async function renderPage(options) {
+   const { componentPath, routeUrl, islands, renderHead: shouldRenderHead, config } = options;
+   const serverEntryPath = path3.join(__dirname, "..", "src", "server-entry.tsx");
+@@ -393,7 +392,7 @@ async function renderPage(options) {
+     // Don't load vite.config.ts
+     root: process.cwd(),
+     // Use project's root to resolve node_modules
+-    plugins: [reactPlugin(), tailwindcss(), ...config.vite.plugins],
++    plugins: [reactPlugin(), ...config.vite.plugins],
+     appType: "custom",
+     logLevel: toViteLogLevel(config.logLevel),
+     ssr: {
+@@ -657,67 +656,19 @@ import { createRequire as createRequire2 } from "module";
+ var require3 = createRequire2(path5.join(process.cwd(), "package.json"));
+ var { build } = require3("vite");
+ var reactPlugin2 = require3("@vitejs/plugin-react").default;
+-var tailwindcss2 = require3("@tailwindcss/vite").default;
+-async function buildCssBundle(options) {
+-  const { componentPath, slug, config } = options;
+-  const outputDir = path5.join(process.cwd(), config.outDir);
+-  const tempDir = path5.join(process.cwd(), "node_modules", ".vite-plugin-ssg");
+-  fs4.mkdirSync(tempDir, { recursive: true });
+-  const tempEntryPath = path5.join(tempDir, `_temp_${slug}_entry.tsx`);
+-  const relativePath = path5.relative(path5.dirname(tempEntryPath), componentPath);
+-  const globalCssAbsolute = path5.join(process.cwd(), config.css.globalCssPath);
+-  const globalCssRelative = path5.relative(path5.dirname(tempEntryPath), globalCssAbsolute);
+-  const tempEntryContent = `
+-        import '${globalCssRelative}';
+-        import '${relativePath}';
+-    `;
+-  fs4.writeFileSync(tempEntryPath, tempEntryContent);
+-  try {
+-    const plugins = [
+-      reactPlugin2(),
+-      tailwindcss2(),
+-      ...config.vite.plugins
+-    ];
+-    await build({
+-      configFile: false,
+-      // Don't load vite.config.ts
+-      root: process.cwd(),
+-      // Use project's root to resolve node_modules
+-      plugins,
+-      build: {
+-        outDir: outputDir,
+-        emptyOutDir: false,
+-        rollupOptions: {
+-          input: tempEntryPath,
+-          output: {
+-            entryFileNames: `${slug}.js`,
+-            chunkFileNames: `${slug}-[hash].js`,
+-            assetFileNames: `${slug}.[ext]`
+-          },
+-          external: ["sharp", "fsevents"]
+-        },
+-        cssCodeSplit: false,
+-        cssMinify: config.css.minify,
+-        minify: true
+-      },
+-      logLevel: toViteLogLevel(config.logLevel)
+-    });
+-    const files = fs4.readdirSync(outputDir);
+-    for (const file of files) {
+-      if (file.endsWith(".js") && !file.includes("hydrate")) {
+-        fs4.unlinkSync(path5.join(outputDir, file));
+-      }
+-    }
+-    const cssFileName = `${slug}.css`;
+-    const cssExists = fs4.existsSync(path5.join(outputDir, cssFileName));
+-    return {
+-      cssPath: cssExists ? `${config.baseUrl}/${cssFileName}` : null
+-    };
+-  } finally {
+-    if (fs4.existsSync(tempEntryPath)) {
+-      fs4.unlinkSync(tempEntryPath);
+-    }
++var tailwindPluginPromise;
++async function loadTailwindPlugin() {
++  if (!tailwindPluginPromise) {
++    tailwindPluginPromise = import("@tailwindcss/vite").then((mod) => mod.default);
+   }
++  return tailwindPluginPromise;
++}
++async function buildCssBundle(options) {
++  const { config } = options;
++  const base = config.baseUrl || "";
++  return {
++    cssPath: `${base}/assets/index.css`
++  };
+ }
+ 
+ // src/hydration-builder.ts
+@@ -727,7 +678,6 @@ import { createRequire as createRequire3 } from "module";
+ var require4 = createRequire3(path6.join(process.cwd(), "package.json"));
+ var { build: build2 } = require4("vite");
+ var reactPlugin3 = require4("@vitejs/plugin-react").default;
+-var tailwindcss3 = require4("@tailwindcss/vite").default;
+ async function buildHydrationBundle(options) {
+   const { slug, islands, config } = options;
+   const outputDir = path6.join(process.cwd(), config.outDir);
+@@ -740,6 +690,7 @@ async function buildHydrationBundle(options) {
+   const hydrateEntryPath = path6.join(tempDir, `_temp_${slug}_hydrate.tsx`);
+   fs5.writeFileSync(hydrateEntryPath, hydrateScript);
+   try {
++    const tailwindcss3 = await loadTailwindPlugin();
+     const plugins = [
+       reactPlugin3(),
+       tailwindcss3(),
