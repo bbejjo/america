@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit -p tsconfig.app.json",
-    "postinstall": "patch-package"
+    "postinstall": "node scripts/apply-patches.cjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",
