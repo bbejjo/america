@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { LoaderOverlay } from './ImageWithLoader';
 
-const heroImage = '/images/Hero.png';
+const heroImage = '/images/Hero2.png';
 const mobileHeroImage = '/images/mob-hero.png';
 
 const Hero = () => {
