@@ -114,4 +114,63 @@ index 5c2aca7..e1fff15 100644
 +    const tailwindcss3 = await loadTailwindPlugin();
      const plugins = [
        reactPlugin3(),
-       tailwindcss3(),
+      tailwindcss3(),
+--- a/node_modules/vite-plugin-ssg/src/server-entry.tsx
++++ b/node_modules/vite-plugin-ssg/src/server-entry.tsx
+@@ -1,8 +1,29 @@
++import path from "node:path"
+ import React, { Suspense, ComponentType, ReactNode } from "react"
+ import { prerenderToNodeStream } from "react-dom/static"
+ import ReactDOMServer from "react-dom/server"
+ import { IslandContext } from "./Island"
+ import type { ContextWrapper } from "./types"
++
++// Convert Windows/absolute paths to valid ESM specifiers
++const toImportPath = (modulePath: string) => {
++    if (modulePath.startsWith("file:")) {
++        return modulePath;
++    }
++
++    const normalized = modulePath.replace(/\\/g, "/");
++
++    if (normalized.startsWith("/")) {
++        return normalized;
++    }
++
++    if (path.isAbsolute(modulePath)) {
++        const relative = path.relative(process.cwd(), modulePath).replace(/\\/g, "/");
++        return relative.startsWith("/") ? relative : `/${relative}`;
++    }
++
++    return normalized;
++}
+ 
+ // Helper to convert Node stream to string
+ async function streamToString(stream: NodeJS.ReadableStream): Promise<string> {
+@@ -38,7 +59,7 @@
+     for (const island of islands) {
+         try {
+             console.log(`[SSR] Loading island component: ${island.name}`)
+-            const islandModule = await import(island.filePath /* @vite-ignore */);
++            const islandModule = await import(toImportPath(island.filePath));
+             islandComponents[island.importPath] = islandModule.default;
+         } catch (error) {
+             console.error(`[SSR] Failed to load island ${island.name}:`, error);
+@@ -46,7 +67,7 @@
+     }
+ 
+     // Step 2: Load the page module
+-    const module = await import(modulePath /* @vite-ignore */);
++    const module = await import(toImportPath(modulePath));
+     const Component = module.default;
+     const ssgOptions = module.ssgOptions;
+     const contextWrapper: ContextWrapper | undefined = ssgOptions?.context;
+@@ -83,7 +104,7 @@
+  * Render the page's Head component from ssgOptions.Head
+  */
+ export const renderHead = async (modulePath: string): Promise<string> => {
+-    const module = await import(modulePath /* @vite-ignore */);
++    const module = await import(toImportPath(modulePath));
+ 
+     // Look for Head in ssgOptions first, then fallback to direct export
+     const Head = module.ssgOptions?.Head || module.Head;
