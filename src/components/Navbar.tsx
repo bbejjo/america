@@ -84,7 +84,7 @@ const Navbar = () => {
             </button>
           </div>
 
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-6">
             {navLinks.map((link) => (
               <button
                 key={link.id}
@@ -97,7 +97,7 @@ const Navbar = () => {
             ))}
           </div>
 
-          <div className="relative md:hidden">
+          <div className="relative lg:hidden">
             <button
               onClick={() => setIsMenuOpen((prev) => !prev)}
               className="p-3 text-sm font-semibold transition-all duration-200 text-[#FF9A5A] hover:text-[#FF9A5A] active:text-[#FF9A5A] transform hover:scale-110"
