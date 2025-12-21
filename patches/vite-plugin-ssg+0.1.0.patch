@@ -1,4 +1,3 @@
- async function renderPage(options) {
 diff --git a/node_modules/vite-plugin-ssg/src/server-entry.tsx b/node_modules/vite-plugin-ssg/src/server-entry.tsx
 index 0000000..0000000 100644
 --- a/node_modules/vite-plugin-ssg/src/server-entry.tsx
