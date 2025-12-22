@@ -57,7 +57,6 @@ const DriveWithUs = () => {
         { publicKey: EMAIL_PUBLIC_KEY }
       );
       setStatus('success');
-      setIsModalOpen(false);
       setFormData({
         fullName: '',
         email: '',
