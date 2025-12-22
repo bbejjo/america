@@ -86,7 +86,7 @@ const Feedback = () => {
       date: 'Jan 12, 2025',
       tags: ['On-Time Transport', 'Fast Delivery'],
       review:
-        'As a growing dealership, we need a transport partner we can count on. Prime Auto has proven time and again that they are reliable, efficient, and professional. Their rates are fair, and their service is outstanding.',
+        'As a growing dealership, we need a transport partner we can count on. Maeli LLC has proven time and again that they are reliable, efficient, and professional. Their rates are fair, and their service is outstanding.',
     },
   ];
 
