@@ -1,15 +1,54 @@
-import type { FormEvent } from 'react';
+import { useState, type FormEvent } from 'react';
 import { MessageCircle } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+
+const EMAIL_SERVICE_ID = 'service_paei662';
+const EMAIL_TEMPLATE_ID = 'template_078wbk5';
+const DEFAULT_PUBLIC_KEY = '7FPW0yMTEmK4OT-DZ';
+const EMAIL_PUBLIC_KEY =
+  import.meta.env.VITE_EMAILJS_PUBLIC_KEY || DEFAULT_PUBLIC_KEY;
 
 const Contact = () => {
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const [status, setStatus] = useState<
+    'idle' | 'sending' | 'success' | 'error'
+  >('idle');
+  const [error, setError] = useState<string | null>(null);
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    setError(null);
+
+    if (!EMAIL_PUBLIC_KEY) {
+      setError('Email service is not configured. Please try again later.');
+      return;
+    }
+
+    const formData = new FormData(form);
     const fullName = (formData.get('fullName') as string) || '';
     const email = (formData.get('email') as string) || '';
     const message = (formData.get('message') as string) || '';
-    console.log('Contact form submission:', { fullName, email, message });
-    e.currentTarget.reset();
+
+    setStatus('sending');
+
+    try {
+      await emailjs.send(
+        EMAIL_SERVICE_ID,
+        EMAIL_TEMPLATE_ID,
+        {
+          name: fullName,
+          email,
+          message,
+        },
+        { publicKey: EMAIL_PUBLIC_KEY }
+      );
+      setStatus('success');
+      form.reset();
+    } catch (err) {
+      console.error('Failed to send email via EmailJS:', err);
+      setError('Sorry, something went wrong. Please try again.');
+      setStatus('error');
+    }
   };
 
   return (
@@ -45,6 +84,16 @@ const Contact = () => {
               onSubmit={handleSubmit}
               className="bg-white rounded-lg shadow-lg p-8 space-y-6"
             >
+              {status === 'success' && (
+                <div className="rounded-md bg-green-50 border border-green-200 text-green-800 px-4 py-3 text-sm">
+                  Thanks for reaching out! Your message has been sent.
+                </div>
+              )}
+              {error && (
+                <div className="rounded-md bg-red-50 border border-red-200 text-red-800 px-4 py-3 text-sm">
+                  {error}
+                </div>
+              )}
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -88,9 +137,10 @@ const Contact = () => {
               <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
                 <button
                   type="submit"
-                  className="flex-1 bg-[#FF9A5A] hover:bg-[#e57d3f] text-white py-3 rounded-md font-semibold transition-all duration-300 transform hover:scale-105"
+                  disabled={status === 'sending'}
+                  className="flex-1 bg-[#FF9A5A] hover:bg-[#e57d3f] disabled:opacity-60 disabled:cursor-not-allowed text-white py-3 rounded-md font-semibold transition-all duration-300 transform hover:scale-105"
                 >
-                  Send Email
+                  {status === 'sending' ? 'Sending...' : 'Send Email'}
                 </button>
                 <a
                   href="https://wa.me/12679753435"
