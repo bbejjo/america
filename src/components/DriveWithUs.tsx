@@ -1,8 +1,14 @@
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import Modal from './Modal';
 import ImageWithLoader from './ImageWithLoader';
 
 const driverImage = '/images/driver.jpg';
+const EMAIL_SERVICE_ID = 'service_paei662';
+const EMAIL_TEMPLATE_ID = 'template_zf75qe4';
+const DEFAULT_PUBLIC_KEY = '7FPW0yMTEmK4OT-DZ';
+const EMAIL_PUBLIC_KEY =
+  import.meta.env.VITE_EMAILJS_PUBLIC_KEY || DEFAULT_PUBLIC_KEY;
 
 const DriveWithUs = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -15,20 +21,56 @@ const DriveWithUs = () => {
     cdlType: '',
     message: '',
   });
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>(
+    'idle'
+  );
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Driver Application Data:', formData);
-    setIsModalOpen(false);
-    setFormData({
-      fullName: '',
-      email: '',
-      phone: '',
-      cityState: '',
-      yearsExperience: '',
-      cdlType: '',
-      message: '',
-    });
+    setError(null);
+    setStatus('sending');
+
+    const detailLines = [
+      { label: 'City/State', value: formData.cityState },
+      { label: 'Years of Experience', value: formData.yearsExperience },
+      { label: 'CDL Type', value: formData.cdlType },
+      { label: 'Additional Information', value: formData.message },
+    ]
+      .filter((item) => item.value)
+      .map((item) => `${item.label} - ${item.value}`)
+      .join('\n');
+
+    const payload = {
+      title: 'Driver Application',
+      name: formData.fullName,
+      email: formData.email,
+      phone: formData.phone,
+      data: detailLines,
+    };
+
+    try {
+      await emailjs.send(
+        EMAIL_SERVICE_ID,
+        EMAIL_TEMPLATE_ID,
+        payload,
+        { publicKey: EMAIL_PUBLIC_KEY }
+      );
+      setStatus('success');
+      setIsModalOpen(false);
+      setFormData({
+        fullName: '',
+        email: '',
+        phone: '',
+        cityState: '',
+        yearsExperience: '',
+        cdlType: '',
+        message: '',
+      });
+    } catch (err) {
+      setError('Could not send application. Please try again.');
+      setStatus('error');
+    }
   };
 
   const handleChange = (
@@ -197,10 +239,19 @@ const DriveWithUs = () => {
 
           <button
             type="submit"
-            className="w-full bg-[#FF9A5A] hover:bg-[#e57d3f] text-white py-3 rounded-md font-semibold transition-all duration-300 transform hover:scale-105"
+            disabled={status === 'sending'}
+            className="w-full bg-[#FF9A5A] hover:bg-[#e57d3f] disabled:opacity-60 disabled:cursor-not-allowed text-white py-3 rounded-md font-semibold transition-all duration-300 transform hover:scale-105"
           >
-            Submit Application
+            {status === 'sending' ? 'Submitting...' : 'Submit Application'}
           </button>
+          {error && (
+            <p className="text-sm text-red-600 text-center">{error}</p>
+          )}
+          {status === 'success' && (
+            <p className="text-sm text-green-600 text-center">
+              Application sent!
+            </p>
+          )}
         </form>
       </Modal>
     </>

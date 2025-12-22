@@ -1,9 +1,15 @@
 import { useState } from 'react';
 import { Container } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 import Modal from './Modal';
 import ImageWithLoader from './ImageWithLoader';
 
 const carImage = '/images/car.png';
+const EMAIL_SERVICE_ID = 'service_paei662';
+const EMAIL_TEMPLATE_ID = 'template_zf75qe4';
+const DEFAULT_PUBLIC_KEY = '7FPW0yMTEmK4OT-DZ';
+const EMAIL_PUBLIC_KEY =
+  import.meta.env.VITE_EMAILJS_PUBLIC_KEY || DEFAULT_PUBLIC_KEY;
 
 const ShipYourCar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,21 +23,58 @@ const ShipYourCar = () => {
     pickupDate: '',
     message: '',
   });
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>(
+    'idle'
+  );
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Quote Request Data:', formData);
-    setIsModalOpen(false);
-    setFormData({
-      fullName: '',
-      email: '',
-      phone: '',
-      pickupLocation: '',
-      deliveryLocation: '',
-      vehicleType: '',
-      pickupDate: '',
-      message: '',
-    });
+    setError(null);
+    setStatus('sending');
+
+    const detailLines = [
+      { label: 'Pickup City', value: formData.pickupLocation },
+      { label: 'Delivery City', value: formData.deliveryLocation },
+      { label: 'Vehicle Type', value: formData.vehicleType },
+      { label: 'Preferred Pickup Date', value: formData.pickupDate },
+      { label: 'Additional Details', value: formData.message },
+    ]
+      .filter((item) => item.value)
+      .map((item) => `${item.label} - ${item.value}`)
+      .join('\n');
+
+    const payload = {
+      title: 'Customer Application',
+      name: formData.fullName,
+      email: formData.email,
+      phone: formData.phone,
+      data: detailLines,
+    };
+
+    try {
+      await emailjs.send(
+        EMAIL_SERVICE_ID,
+        EMAIL_TEMPLATE_ID,
+        payload,
+        { publicKey: EMAIL_PUBLIC_KEY }
+      );
+      setStatus('success');
+      setIsModalOpen(false);
+      setFormData({
+        fullName: '',
+        email: '',
+        phone: '',
+        pickupLocation: '',
+        deliveryLocation: '',
+        vehicleType: '',
+        pickupDate: '',
+        message: '',
+      });
+    } catch (err) {
+      setError('Could not send request. Please try again.');
+      setStatus('error');
+    }
   };
 
   const handleChange = (
@@ -216,10 +259,19 @@ const ShipYourCar = () => {
 
           <button
             type="submit"
-            className="w-full bg-[#FF9A5A] hover:bg-[#e57d3f] text-white py-3 rounded-md font-semibold transition-all duration-300 transform hover:scale-105"
+            disabled={status === 'sending'}
+            className="w-full bg-[#FF9A5A] hover:bg-[#e57d3f] disabled:opacity-60 disabled:cursor-not-allowed text-white py-3 rounded-md font-semibold transition-all duration-300 transform hover:scale-105"
           >
-            Submit Quote Request
+            {status === 'sending' ? 'Submitting...' : 'Submit Quote Request'}
           </button>
+          {error && (
+            <p className="text-sm text-red-600 text-center">{error}</p>
+          )}
+          {status === 'success' && (
+            <p className="text-sm text-green-600 text-center">
+              Request sent!
+            </p>
+          )}
         </form>
       </Modal>
     </>
